@@ -1,17 +1,12 @@
-package controller;
+package org.summerframework.demo.controller;
 
-import annotation.Bean;
+import org.summerframework.core.annotation.Bean;
 
 /**
  * @author Tenton Lien
  */
 @Bean
 public class EchoController {
-
-    public EchoController() {
-        System.out.println("Initialize: EchoController");
-    }
-
     public String echo(String content) {
         return "Echo: " + content;
     }

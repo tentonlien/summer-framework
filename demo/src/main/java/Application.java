@@ -1,13 +1,10 @@
-import controller.EchoController;
-
-import java.io.IOException;
+import org.summerframework.core.SummerApplication;
 
 /**
  * @author Tenton Lien
  */
 public class Application {
-    public static void main(String[] args) throws IOException {
-        new SummerApplication().start();
-        System.out.println(((EchoController)(ApplicationContext.getBean("controller.EchoController"))).echo("Hey"));
+    public static void main(String[] args) {
+        SummerApplication.run(Application.class, args);
     }
 }

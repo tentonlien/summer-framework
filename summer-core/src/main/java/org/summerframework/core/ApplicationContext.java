@@ -1,4 +1,6 @@
-import annotation.Bean;
+package org.summerframework.core;
+
+import org.summerframework.core.annotation.Bean;
 
 import java.io.File;
 import java.net.URL;
@@ -53,6 +55,8 @@ public class ApplicationContext {
             beans.forEach((k, v) -> {
                 System.out.println(k + " ");
             });
+        } else {
+            System.exit(-1);
         }
     }
 }
