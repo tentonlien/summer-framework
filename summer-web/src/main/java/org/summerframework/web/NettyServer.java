@@ -11,9 +11,11 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.summerframework.core.PropertiesManager;
 
 /**
  * @author Tenton Lien
+ * @date 12/25/2020
  */
 public class NettyServer {
 
@@ -21,6 +23,10 @@ public class NettyServer {
 
     private final int serverPort;
     ServerBootstrap serverBootstrap = new ServerBootstrap();
+
+    public NettyServer() {
+        this.serverPort = Integer.parseInt(PropertiesManager.getProperty("server.port", "8080"));
+    }
 
     public NettyServer(int port) {
         this.serverPort = port;
@@ -51,7 +57,7 @@ public class NettyServer {
             });
             // Start binding server
             ChannelFuture channelFuture = serverBootstrap.bind().sync();
-            logger.info("Server starts successfully, listening address: " + channelFuture.channel().localAddress());
+            logger.info("Netty initialized with port(s): {}", serverPort);
 
             // Wait util the async task of closing channel finishing
             ChannelFuture closeFuture = channelFuture.channel().closeFuture();

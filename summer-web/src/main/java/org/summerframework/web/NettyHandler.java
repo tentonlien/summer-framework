@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * @author Tenton Lien
+ * @date 12/25/2020
  */
 public class NettyHandler extends ChannelInboundHandlerAdapter {
 
@@ -19,10 +20,11 @@ public class NettyHandler extends ChannelInboundHandlerAdapter {
         ByteBuf in = (ByteBuf) msg;
         try {
             logger.info("Receive message: ");
+            StringBuilder requestContent = new StringBuilder();
             while (in.isReadable()) {
-                System.out.print((char) in.readByte());
+                requestContent.append((char) in.readByte());
             }
-            System.out.println();
+            HttpRequest httpRequest = new HttpRequest(requestContent.toString());
         } finally {
             ReferenceCountUtil.release(msg);
         }

@@ -5,12 +5,13 @@ import org.summerframework.web.NettyServer;
 
 /**
  * @author Tenton Lien
+ * @date 12/25/2020
  */
 @Bean
 public class WebConfig {
 
     public WebConfig() {
-        NettyServer nettyServer = new NettyServer(7086);
+        NettyServer nettyServer = new NettyServer();
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {

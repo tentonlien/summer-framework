@@ -26,12 +26,6 @@
     <dependencies>
         <dependency>
             <groupId>org.summer-framework</groupId>
-            <artifactId>summer-core</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.summer-framework</groupId>
             <artifactId>summer-web</artifactId>
             <version>0.1.0</version>
         </dependency>
